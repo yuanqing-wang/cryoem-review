@@ -302,7 +302,7 @@ def parse_all():
             res, doi, pubmed, date, authors, pdb, mol_weights, grid_material,\
                 grid_mesh, grid_model, method = parse_single_entry(idx, ftp)
             df = df.append([[idx, res, doi, pubmed, date, authors, pdb,
-                grid_material, grid_mesh, grid_model, method]])
+                grid_material, grid_mesh, grid_model, method, mol_weights]])
             print(idx, res, doi, pubmed, date, authors, pdb, grid_material,
                 grid_mesh, grid_model, method)
         except:
