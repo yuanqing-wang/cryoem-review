@@ -1,0 +1,204 @@
+<emdEntry accessCode="0079" version="1.9.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://github.com/emdb-empiar/emdb-schemas/tree/master/current/emdb.xsd">
+    <admin>
+        <lastUpdate>2018-08-22</lastUpdate>
+    </admin>
+    <deposition>
+        <status>HPUB</status>
+        <depositionDate>2018-06-27</depositionDate>
+        <depositionSite>PDBe</depositionSite>
+        <processingSite>PDBe</processingSite>
+        <headerReleaseDate>2018-08-22</headerReleaseDate>
+        <title>Stringent Response Control by a Bifunctional RelA enyzme in the Presence and Absence of the Ribosome</title>
+        <authors>Wilson DN, Abdelshahid M</authors>
+        <fittedPDBEntryIdList>
+            <fittedPDBEntryId>6gxi</fittedPDBEntryId>
+        </fittedPDBEntryIdList>
+        <primaryReference published="false">
+            <journalArticle>
+                <authors>Wilson DN, Abdelshahid M</authors>
+                <articleTitle>Stringent Response Control by a Bifunctional RelA enyzme in the Presence and Absence of the Ribosome</articleTitle>
+                <journal>To Be Published</journal>
+                <externalReference type="csd">0353</externalReference>
+            </journalArticle>
+        </primaryReference>
+    </deposition>
+    <map>
+        <file format="CCP4" sizeKb="186625" type="map">emd_0079.map.gz</file>
+        <dataType>Image stored as Reals</dataType>
+        <dimensions>
+            <numRows>360</numRows>
+            <numColumns>360</numColumns>
+            <numSections>360</numSections>
+        </dimensions>
+        <origin>
+            <originRow>0.</originRow>
+            <originCol>0.</originCol>
+            <originSec>0.</originSec>
+        </origin>
+        <limit>
+            <limitRow>359.</limitRow>
+            <limitCol>359.</limitCol>
+            <limitSec>359.</limitSec>
+        </limit>
+        <spacing>
+            <spacingRow>360</spacingRow>
+            <spacingCol>360</spacingCol>
+            <spacingSec>360</spacingSec>
+        </spacing>
+        <cell>
+            <cellA units="A">390.24</cellA>
+            <cellB units="A">390.24</cellB>
+            <cellC units="A">390.24</cellC>
+            <cellAlpha units="degrees">90.0</cellAlpha>
+            <cellBeta units="degrees">90.0</cellBeta>
+            <cellGamma units="degrees">90.0</cellGamma>
+        </cell>
+        <axisOrder>
+            <axisOrderFast>X</axisOrderFast>
+            <axisOrderMedium>Y</axisOrderMedium>
+            <axisOrderSlow>Z</axisOrderSlow>
+        </axisOrder>
+        <statistics>
+            <minimum>-0.3112882</minimum>
+            <maximum>0.46533</maximum>
+            <average>0.0002610036</average>
+            <std>0.01799019</std>
+        </statistics>
+        <spaceGroupNumber>1</spaceGroupNumber>
+        <details />
+        <pixelSpacing>
+            <pixelX units="A">1.084</pixelX>
+            <pixelY units="A">1.084</pixelY>
+            <pixelZ units="A">1.084</pixelZ>
+        </pixelSpacing>
+        <contourLevel source="author">0.0438</contourLevel>
+    </map>
+    <sample>
+        <numComponents>58</numComponents>
+        <name>Structure of bifunctional Rel on B. subtilis 70S</name>
+        <sampleComponentList>
+            <sampleComponent componentID="1">
+                <entry>protein</entry>
+                <sciName>Structure of bifunctional Rel on B. subtilis 70S</sciName>
+                <protein>
+                    <recombinantExpFlag>false</recombinantExpFlag>
+                    <engSource />
+                </protein>
+            </sampleComponent>
+            <sampleComponent componentID="2">
+                <entry>protein</entry>
+                <sciName>70S ribosome</sciName>
+                <protein>
+                    <sciSpeciesName ncbiTaxId="224308">Bacillus subtilis (strain 168)</sciSpeciesName>
+                    <recombinantExpFlag>false</recombinantExpFlag>
+                    <natSource />
+                    <engSource>
+                        <expSystem ncbiTaxId="224308">Bacillus subtilis (strain 168)</expSystem>
+                    </engSource>
+                </protein>
+            </sampleComponent>
+            <sampleComponent componentID="3">
+                <entry>protein</entry>
+                <sciName>tRNAs</sciName>
+                <protein>
+                    <sciSpeciesName ncbiTaxId="562">Escherichia coli</sciSpeciesName>
+                    <recombinantExpFlag>false</recombinantExpFlag>
+                    <natSource />
+                    <engSource>
+                        <expSystem ncbiTaxId="32630">synthetic contruct</expSystem>
+                    </engSource>
+                </protein>
+            </sampleComponent>
+            <sampleComponent componentID="4">
+                <entry>nucleic-acid</entry>
+                <sciName>16S rRNA</sciName>
+                <molWtTheo units="MDa">0.500263219</molWtTheo>
+                <nucleic-acid>
+                    <sciSpeciesName ncbiTaxId="224308">Bacillus subtilis subsp. subtilis str. 168</sciSpeciesName>
+                    <syntheticFlag>false</syntheticFlag>
+                    <sequence>GGAGAGUUUGAUCCUGGCUCAGGACGAACGCUGGCGGCGUGCCUAAUACAUGCAAGUCGAGCGGACAGAUGGGAGCUUGC UCCCUGAUGUUAGCGGCGGACGGGUGAGUAACACGUGGGUAACCUGCCUGUAAGACUGGGAUAACUCCGGGAAACCGGGG CUAAUACCGGAUGGUUGUUUGAACCGCAUGGUUCAAACAUAAAAGGUGGCUUCGGCUACCACUUACAGAUGGACCCGCGG CGCAUUAGCUAGUUGGUGAGGUAACGGCUCACCAAGGCGACGAUGCGUAGCCGACCUGAGAGGGUGAUCGGCCACACUGG GACUGAGACACGGCCCAGACUCCUACGGGAGGCAGCAGUAGGGAAUCUUCCGCAAUGGACGAAAGUCUGACGGAGCAACG CCGCGUGAGUGAUGAAGGUUUUCGGAUCGUAAAGCUCUGUUGUUAGGGAAGAACAAGUGCCGUUCGAAUAGGGCGGUACC UUGACGGUACCUAACCAGAAAGCCACGGCUAACUACGUGCCAGCAGCCGCGGUAAUACGUAGGUGGCAAGCGUUGUCCGG AAUUAUUGGGCGUAAAGGGCUCGCAGGCGGUUUCUUAAGUCUGAUGUGAAAGCCCCCGGCUCAACCGGGGAGGGUCAUUG GAAACUGGGGAACUUGAGUGCAGAAGAGGAGAGUGGAAUUCCACGUGUAGCGGUGAAAUGCGUAGAGAUGUGGAGGAACA CCAGUGGCGAAGGCGACUCUCUGGUCUGUAACUGACGCUGAGGAGCGAAAGCGUGGGGAGCGAACAGGAUUAGAUACCCU GGUAGUCCACGCCGUAAACGAUGAGUGCUAAGUGUUAGGGGGUUUCCGCCCCUUAGUGCUGCAGCUAACGCAUUAAGCAC UCCGCCUGGGGAGUACGGUCGCAAGACUGAAACUCAAAGGAAUUGACGGGGGCCCGCACAAGCGGUGGAGCAUGUGGUUU AAUUCGAAGCAACGCGAAGAACCUUACCAGGUCUUGACAUCCUCUGACAAUCCUAGAGAUAGGACGUCCCCUUCGGGGGC AGAGUGACAGGUGGUGCAUGGUUGUCGUCAGCUCGUGUCGUGAGAUGUUGGGUUAAGUCCCGCAACGAGCGCAACCCUUG AUCUUAGUUGCCAGCAUUCAGUUGGGCACUCUAAGGUGACUGCCGGUGACAAACCGGAGGAAGGUGGGGAUGACGUCAAA UCAUCAUGCCCCUUAUGACCUGGGCUACACACGUGCUACAAUGGACAGAACAAAGGGCAGCGAAACCGCGAGGUUAAGCC AAUCCCACAAAUCUGUUCUCAGUUCGGAUCGCAGUCUGCAACUCGACUGCGUGAAGCUGGAAUCGCUAGUAAUCGCGGAU CAGCAUGCCGCGGUGAAUACGUUCCCGGGCCUUGUACACACCGCCCGUCACACCACGAGAGUUUGUAACACCCGAAGUCG GUGAGGUAACCUUUUAGGAGCCAGCCGCCGAAGGUGGGACAGAUGAUUGGGGUGAAGUCGUAACAAGGUAGCCGUAUCGG AAGGUGCGGCUGGAUCACCUCCUU</sequence>
+                    <class>RNA</class>
+                    <structure>OTHER</structure>
+                </nucleic-acid>
+            </sampleComponent>
+            <sampleComponent componentID="5">
+                <entry>protein</entry>
+                <sciName>30S ribosomal protein S2</sciName>
+                <molWtTheo units="MDa">0.025730895</molWtTheo>
+                <protein>
+                    <sciSpeciesName ncbiTaxId="224308">Bacillus subtilis (strain 168)</sciSpeciesName>
+                    <numCopies>1</numCopies>
+                    <recombinantExpFlag>false</recombinantExpFlag>
+                    <natSource />
+                    <engSource>
+                        <expSystem ncbiTaxId="224308">Bacillus subtilis subsp. subtilis str. 168</expSystem>
+                    </engSource>
+                </protein>
+            </sampleComponent>
+            <sampleComponent componentID="6">
+                <entry>protein</entry>
+                <sciName>30S ribosomal protein S3</sciName>
+                <molWtTheo units="MDa">0.023488898</molWtTheo>
+                <protein>
+                    <sciSpeciesName ncbiTaxId="224308">Bacillus subtilis (strain 168)</sciSpeciesName>
+                    <numCopies>1</numCopies>
+                    <recombinantExpFlag>false</recombinantExpFlag>
+                    <natSource />
+                    <engSource>
+                        <expSystem ncbiTaxId="224308">Bacillus subtilis subsp. subtilis str. 168</expSystem>
+                    </engSource>
+                </protein>
+            </sampleComponent>
+            <sampleComponent componentID="7">
+                <entry>protein</entry>
+                <sciName>30S ribosomal protein S4</sciName>
+                <molWtTheo units="MDa">0.022743074</molWtTheo>
+                <protein>
+                    <sciSpeciesName ncbiTaxId="224308">Bacillus subtilis (strain 168)</sciSpeciesName>
+                    <numCopies>1</numCopies>
+                    <recombinantExpFlag>false</recombinantExpFlag>
+                    <natSource />
+                    <engSource>
+                        <expSystem ncbiTaxId="224308">Bacillus subtilis subsp. subtilis str. 168</expSystem>
+                    </engSource>
+                </protein>
+            </sampleComponent>
+            <sampleComponent componentID="8">
+                <entry>protein</entry>
+                <sciName>30S ribosomal protein S5</sciName>
+                <molWtTheo units="MDa">0.01751943</molWtTheo>
+                <protein>
+                    <sciSpeciesName ncbiTaxId="224308">Bacillus subtilis (strain 168)</sciSpeciesName>
+                    <numCopies>1</numCopies>
+                    <recombinantExpFlag>false</recombinantExpFlag>
+                    <natSource />
+                    <engSource>
+                        <expSystem ncbiTaxId="224308">Bacillus subtilis subsp. subtilis str. 168</expSystem>
+                    </engSource>
+                </protein>
+            </sampleComponent>
+            <sampleComponent componentID="9">
+                <entry>protein</entry>
+                <sciName>30S ribosomal protein S6</sciName>
+                <molWtTheo units="MDa">0.011140548</molWtTheo>
+                <protein>
+                    <sciSpeciesName ncbiTaxId="224308">Bacillus subtilis (strain 168)</sciSpeciesName>
+                    <numCopies>1</numCopies>
+                    <recombinantExpFlag>false</recombinantExpFlag>
+                    <natSource />
+                    <engSource>
+                        <expSystem ncbiTaxId="224308">Bacillus subtilis subsp. subtilis str. 168</expSystem>
+                    </engSource>
+                </protein>
+            </sampleComponent>
+            <sampleComponent componentID="10">
+                <entry>protein</entry>
+                <sciName>30S ribosomal protein S7</sciName>
+                <molWtTheo units="MDa">0.017530369</molWtTheo>
+                <protein>
+                    <sciSpeciesName ncbiTaxId="224308">Bacillus subtilis (strain 168)</sciSpeciesName>
+                    <numCopies>1</numCopies>
+                    <recombinantExpFlag>false</recombinantExpFlag>
+                    <natSource />
+                    <engSource>
+      
