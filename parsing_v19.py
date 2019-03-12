@@ -63,17 +63,35 @@ def parse_single_entry(idx: int, ftp):
 
     """
     # initialize
-    res = 0.0
-    doi = ""
-    pubmed = ""
-    date = ""
-    authors = ""
-    pdb = ""
-    mol_weights = ""
-    grid_material = ""
-    grid_mesh = ""
-    grid_model = ""
-    method = ""
+    [res,
+        res_method,
+        date,
+        pubmed,
+        doi,
+        authors,
+        pdb,
+        mol_weights,
+        method,
+        conc,
+        buffer_ph,
+        cryogen,
+        humidity,
+        temperature,
+        vitrification_instrument,
+        electron_source,
+        electron_dose,
+        imaging_mode,
+        illumination_mode,
+        detector,
+        microscope,
+        accelerating_voltage,
+        symmetry,
+        map_size,
+        voxel_min,
+        voxel_max,
+        voxel_avg,
+        voxel_std
+        ] = ["" for dummy_idx in range(28)]
 
     # converting to entry string
     entry = (4 - len(str(idx))) * '0' + str(idx)
@@ -97,6 +115,11 @@ def parse_single_entry(idx: int, ftp):
     except:
         pass
 
+    try:
+        res_method = tree.find('.processing/reconstruction/resolutionMethod').text
+    except:
+        pass
+
     # date
     try:
         date = tree.find('./deposition/depositionDate').text
@@ -106,7 +129,7 @@ def parse_single_entry(idx: int, ftp):
     # ref
     try:
         external_references = tree.findall('.deposition/' +\
-            'primaryReference/journalArticle')
+            'primaryReference/journalArticle/externalReference')
 
         for child in external_references:
             if child.attrib['type'] == 'pubmed':
@@ -118,14 +141,13 @@ def parse_single_entry(idx: int, ftp):
         pass
 
     try:
-        authors = tree.findall('.deposition/authors')
-        authors = ", ".join([child.text for child in authors])
+        authors = tree.find('.deposition/authors').text
 
     except:
         pass
 
     try:
-        pdbs = tree.findall('.deposition/fittedPDBEntryIdList')
+        pdbs = tree.find('.deposition/fittedPDBEntryIdList')
         pdb = ",".join([child.text for child in pdbs])
     except:
         pass
@@ -270,6 +292,98 @@ def parse_single_entry(idx: int, ftp):
         method = tree.find('.processing/method').text
     except:
         pass
+
+
+    # preparation
+    try:
+        conc = tree.find('.experiment/specimenPreparation/specimenConc').text
+    except:
+        pass
+
+    try:
+        buffer_ph = tree.find('experiment/specimenPreparation/buffer/ph').text
+    except:
+        pass
+
+    # vitrification
+    try:
+        cryogen = tree.find('./experiment/vitrification/cryogenName').text
+    except:
+        pass
+
+    try:
+        humidity = tree.find('./experiment/vitrification/humidity').text
+    except:
+        pass
+
+    try:
+        temperature = tree.find('./experiment/vitrification/temperature').text
+    except:
+        pass
+
+    try:
+        vitrification_instrument = tree.find(
+            './experiment/vitrification/instrument').text
+    except:
+        pass
+
+    # imaging
+    try:
+        electron_source = tree.find('./experiment/imaging/electronSource').text
+    except:
+        pass
+
+    try:
+        electron_dose = tree.find('/experiment/imaging/electronDose').text
+    except:
+        pass
+
+    try:
+        imaging_mode = tree.find('/experiment/imaging/imagingMode').text
+    except:
+        pass
+
+    try:
+        illumination_mode = tree.find(
+            '/experiment/imaging/illuminationMode').text
+    except:
+        pass
+
+    try:
+        detector = tree.find('/experiment/imaging/detector').text
+    except:
+        pass
+
+    try:
+        microscope = tree.find('/experiment/imaging/microscope').text
+    except:
+        pass
+
+    try:
+        accelerating_voltage = tree.find(
+            '/experiment/imaging/acceleratingVoltage').text
+    except:
+        pass
+
+    try:
+        symmetry = tree.find('.//appliedSymmetry').text
+    except:
+        pass
+
+
+    # map
+    try:
+        map_size = tree.find('./map/dimensions/numColumns').text
+    except:
+        pass
+
+    try:
+        voxel_min = tree.find('./map/statistics/minimum').text
+        voxel_max = tree.find('./map/statistics/maximum').text
+        voxel_avg = tree.find('./map/statistics/average').text
+        voxel_std = tree.find('./map/statistics/std').text
+    except:
+        pass
     # wrap up
     try:
         xml_file.close()
@@ -281,7 +395,36 @@ def parse_single_entry(idx: int, ftp):
     except:
         pass
 
-    return res, doi, pubmed, date, authors, pdb, mol_weights, method
+    return [
+        res,
+        res_method,
+        date,
+        pubmed,
+        doi,
+        authors,
+        pdb,
+        mol_weights,
+        method,
+        conc,
+        buffer_ph,
+        cryogen,
+        humidity,
+        temperature,
+        vitrification_instrument,
+        electron_source,
+        electron_dose,
+        imaging_mode,
+        illumination_mode,
+        detector,
+        microscope,
+        accelerating_voltage,
+        symmetry,
+        map_size,
+        voxel_min,
+        voxel_max,
+        voxel_avg,
+        voxel_std
+        ]
 
 def parse_all():
     """ Parse the whole database.
@@ -292,11 +435,11 @@ def parse_all():
     df = pd.DataFrame()
 
     for idx in range(1, 9784):
-            res, doi, pubmed, date, authors, pdb, mol_weights, method = parse_single_entry(idx, ftp)
+            result = parse_single_entry(idx, ftp)
 
-            df = df.append([idx, res, doi, pubmed, date, authors, pdb, mol_weights, method])
+            df = df.append([result])
 
-            print(idx, res, doi, pubmed, date, authors, pdb, mol_weights, method)
+            print(idx, result)
     df.to_csv('emdb_summary.csv', sep='\t')
 
 if __name__ == '__main__':
