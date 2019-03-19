@@ -12,7 +12,7 @@ for ampcont in 0.06 0.08 0.10 0.12; do \
 for defocus in 0.5 1.0 1.5 2.0 2.5; do \
 for noiseamp in 0.1 0.2 0.3 0.4; do \
 for noiseampwhite in 0.6 0.8 1.0 1.2; do \
-for bfactor in 30, 1500; do \
+for bfactor in 30, 1500; do
     e2pdb2mrc.py rec.pdb rec.hdf --res=$res --center
     e2project3d.py rec.hdf --outfile=rec_3d.hdf --orientgen=eman:delta=1 \
       --projector=standard --parallel=thread:$n_cpus
