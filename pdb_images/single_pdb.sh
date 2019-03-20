@@ -11,23 +11,26 @@ for voltage in 200.0 300.0; do \
 for ampcont in 0.06 0.08 0.10 0.12; do \
 for defocus in 0.5 1.0 1.5 2.0 2.5; do \
 for noiseamp in 0.1 0.2 0.3 0.4; do \
-for noiseampwhite in 0.6 0.8 1.0 1.2; do \
-for bfactor in 30, 1500; do
+for noiseampwhite in 0.6 0.7 0.8; do \
+for bfactor in 0.0 1.0 2.0 3.0; do
     e2pdb2mrc.py rec.pdb rec.hdf --res=$res --center
     e2project3d.py rec.hdf --outfile=rec_3d.hdf --orientgen=eman:delta=1 \
-      --projector=standard --parallel=thread:$n_cpus
+     --projector=standard --parallel=thread:$n_cpus
     e2proc2d.py rec_3d.hdf rec_3d_noisy.hdf \
     --process=math.simulatectf:\
-      ampcont=$ampcont:\
-      apix=1.0:\
-      bfactor=$bfactor:\
-      cs=$cs:\
-      defocus=$defocus:\
-      noiseamp=$noiseamp:\
-      noiseampwhite=:$noiseampwhite:\
-      voltage=$voltage
+ampcont=$ampcont:\
+apix=1.0:\
+bfactor=$bfactor:\
+cs=$cs:\
+defocus=$defocus:\
+noiseamp=$noiseamp:\
+noiseampwhite=$noiseampwhite:\
+voltage=$voltage
     e2proc2d.py rec_3d_noisy.hdf rec_3d_noisy_unstacked.hdf --unstacking
-    e2proc2d.py rec_3d_noisy_unstacked-*.hdf '$count'_@.png
-    $count += 1
+    e2proc2d.py rec_3d_noisy_unstacked-*.hdf $count_@.png
+    for f in rec_3d_noisy_unstacked-*.hdf; do
+      e2proc2d.py "$f" "$count.png"
+      count=$count+1
+    done;
 
 done; done; done; done; done; done; done; done; done
