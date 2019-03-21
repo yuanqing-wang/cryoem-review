@@ -13,17 +13,22 @@ for defocus in 0.5 1.0 1.5 2.0 2.5; do \
 for noiseamp in 0.1 0.2 0.3 0.4; do \
 for noiseampwhite in 0.6 0.7 0.8; do \
 for bfactor in 0.0 1.0 2.0 3.0; do
-    dx=$(($RANDOM%100+250))
-    dy=$(($RANDOM%100+250))
-    scale='0.'$(($RANDOM%30+30))
+
+    # projection
     e2pdb2mrc.py rec.pdb rec.hdf --res=$res --center
     e2project3d.py rec.hdf --outfile=rec_2d_stack.hdf --orientgen=eman:delta=1 \
-     --projector=standard --parallel=thread:$n_cpus --cuda
+     --projector=standard --parallel=thread:$n_cpus
     e2proc2d.py rec_2d_stack.hdf rec_2d_unstack.hdf --unstacking
-    for f in rec_2d_unstack-*.hdf; do
-      e2proc2d.py "$f" $count'.hdf' --clip=400,400,$dx,$dy --scale=$scale
-      e2proc2d.py $count'.hdf' $count'_clean.img'
-      e2proc2d.py $count'.hdf' $count'_noisy.img' \
+    
+    # convert to .png and add noise
+    for f in rec_2d_unstack-*.hdf; do   
+      # randomly transform the image
+      # dx=$(($RANDOM%200+500))
+      # dy=$(($RANDOM%200+500))
+      # scale='0.'$(($RANDOM%30+30))
+      e2proc2d.py $f $count'.hdf' # --clip=1024,1024,$dx,$dy --scale=$scale
+      e2proc2d.py $count'.hdf' $count'_clean.png'
+      e2proc2d.py $count'.hdf' $count'_noisy.png' \
       --process=math.simulatectf:\
 ampcont=$ampcont:\
 apix=1.0:\
@@ -35,4 +40,8 @@ noiseampwhite=$noiseampwhite:\
 voltage=$voltage
       count=$(($count+1))
 
-done; done; done; done; done; done; done; done; done; done
+      # delete stuff
+
+done;
+  rm *.hdf
+done; done; done; done; done; done; done; done; done
