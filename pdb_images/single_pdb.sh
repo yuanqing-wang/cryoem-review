@@ -9,7 +9,7 @@ n_cpus=$(nproc)
 # possible params here
 # ====================
 for ((idx=0; idx<=10; idx++)); do
-for ((res=2; res<=10; res++)); do
+for res in 0.5, 0.4, 0.3, 0.2, 0.1, 0.05; do \
 for cs in 2.26 4.2; do \
 for voltage in 200.0 300.0; do \
 for ampcont in 0.10 0.12; do \
