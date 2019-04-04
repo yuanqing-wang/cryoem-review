@@ -28,7 +28,7 @@ for bfactor in 3.0 2.0 1.0 0.0; do
         --trans=$((200-$RANDOM%400)),$((200-$RANDOM%400)),$((200-RANDOM%400))
 
       e2project3d.py $count'rec_clipped.mrc' --outfile=$count'rec_clean.mrcs' -a \
-        --orientgen=eman:delta=2 \
+        --orientgen=eman:delta=10 \
         --projector=standard --parallel=thread:$n_cpus
     done;
 
